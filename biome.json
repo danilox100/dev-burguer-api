@@ -15,11 +15,15 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
+<<<<<<< HEAD
 			"recommended": true,
 			"complexity": {
 				"noThisInStatic": "off",
 				"useOptionalChain": "off"
 			}
+=======
+			"recommended": true
+>>>>>>> f7d6b1d2207b5a6809c62817b3c4df29f175d479
 		}
 	},
 	"javascript": {

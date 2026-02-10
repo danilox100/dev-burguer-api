@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import bcrypt from 'bcrypt';
 import { v4 } from 'uuid';
 import * as Yup from 'yup';
 import User from '../models/User.js';
+=======
+import User from '../models/User.js';
+import { v4 } from 'uuid';
+import * as Yup from 'yup';
+import bcrypt from 'bcrypt';
+>>>>>>> f7d6b1d2207b5a6809c62817b3c4df29f175d479
 
 class UserController {
   async store(req, res) {

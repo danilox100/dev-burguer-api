@@ -6,8 +6,13 @@ class Product extends Model {
       {
         name: Sequelize.STRING,
         price: Sequelize.INTEGER,
+<<<<<<< HEAD
         path: Sequelize.STRING,
         offer: Sequelize.BOOLEAN,
+=======
+        category: Sequelize.STRING,
+        path: Sequelize.STRING,
+>>>>>>> f7d6b1d2207b5a6809c62817b3c4df29f175d479
         url: {
           type: Sequelize.VIRTUAL,
           get() {
@@ -20,6 +25,7 @@ class Product extends Model {
         tableName: 'products',
       },
     );
+<<<<<<< HEAD
 
     return this;
   }
@@ -31,6 +37,9 @@ class Product extends Model {
     })
   }
   
+=======
+  }
+>>>>>>> f7d6b1d2207b5a6809c62817b3c4df29f175d479
 }
 
 export default Product;

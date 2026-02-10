@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 import bcrypt from 'bcrypt';
-import { v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import * as Yup from 'yup';
+
 import User from '../models/User.js';
-=======
-import User from '../models/User.js';
-import { v4 } from 'uuid';
-import * as Yup from 'yup';
-import bcrypt from 'bcrypt';
->>>>>>> f7d6b1d2207b5a6809c62817b3c4df29f175d479
 
 class UserController {
   async store(req, res) {
@@ -28,19 +22,19 @@ class UserController {
     const { name, email, password, admin } = req.body;
 
     const existingUser = await User.findOne({
-      where: {
-        email,
-      },
+      where: { email },
     });
 
     if (existingUser) {
-      return res.status(400).json({ error: 'Este email já está casdastrado' });
+      return res
+        .status(400)
+        .json({ error: 'Este email já está cadastrado' });
     }
 
     const password_hash = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-      id: v4(),
+      id: uuidv4(),
       name,
       email,
       password_hash,

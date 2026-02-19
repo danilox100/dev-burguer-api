@@ -8,15 +8,16 @@ import ProductController from './app/controllers/ProductController.js';
 import SessionController from './app/controllers/SessionController.js';
 import UserController from './app/controllers/UserController.js';
 
-import authMiddleware from './middlewares/auth.js';
-import adminMiddleware from './middlewares/admin.js';
+import authMiddleware from './app/middlewares/auth.js';
+import adminMiddleware from './app/middlewares/admin.js';
+import OrderController from './app/controllers/OrderController.js';
 
 const routes = new Router();
 const upload = multer(multerConfig);
 
 // Rotas públicas
 routes.post('/users', UserController.store);
-routes.post('/session', SessionController.store);
+routes.post('/sessions', SessionController.store);
 
 // Middleware de autenticação
 routes.use(authMiddleware);
@@ -54,5 +55,22 @@ routes.put(
 );
 
 routes.get('/categories', CategoryController.index);
+
+// Orders
+routes.post(
+  '/orders',
+  OrderController.store
+);
+
+routes.get(
+  '/orders',
+  OrderController.index
+);
+
+routes.put(
+  '/orders/:id',
+  adminMiddleware,
+  OrderController.update
+);
 
 export default routes;

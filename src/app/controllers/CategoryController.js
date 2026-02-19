@@ -31,6 +31,8 @@ class CategoryController {
         const newCategory = await Category.create({
             name,
             path: filename,
+
+          
         });
 
         return res.status(201).json(newCategory);
@@ -80,7 +82,7 @@ class CategoryController {
             }
         });
 
-        return res.status(201).json();
+        return res.status(201).json({message: 'Category updated successfully'});
     }
 
     async index(_req, res) {

@@ -11,6 +11,7 @@ import UserController from './app/controllers/UserController.js';
 import authMiddleware from './app/middlewares/auth.js';
 import adminMiddleware from './app/middlewares/admin.js';
 import OrderController from './app/controllers/OrderController.js';
+import CreatePaymentIntentController from './app/controllers/stripe/CreatePaymentIntentController.js'
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -72,5 +73,8 @@ routes.put(
   adminMiddleware,
   OrderController.update
 );
+
+// Payment
+routes.post('/create-payment-intent', CreatePaymentIntentController.store);
 
 export default routes;

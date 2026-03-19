@@ -15,11 +15,7 @@ class OrderController {
         )
     });
 
-    try {
-      schema.validateSync(req.body, { abortEarly: false, strict: true });
-    } catch (err) {
-      return res.status(400).json({ error: err.errors });
-    }
+
     
     const {userId, userName} = req
     
